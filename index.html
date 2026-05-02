@@ -54,6 +54,7 @@
             border-radius: 28px;
             padding: 40px 28px;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
         }
 
         header {
@@ -69,6 +70,22 @@
             -webkit-text-fill-color: transparent;
             margin-bottom: 8px;
             letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .samsung-logo {
+            height: 90px;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.5));
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        header h1:hover .samsung-logo {
+            transform: scale(1.08);
         }
 
         header p {
@@ -212,7 +229,10 @@
 
     <div class="container">
         <header>
-            <h1>أكواد سامسونج 📱</h1>
+            <h1>
+                <img src="NS5zdmc.png" alt="Samsung Logo" class="samsung-logo">
+                أكواد سامسونج
+            </h1>
             <p>أكواد الاختبارات، الصيانة، والمعلومات الشاملة لهواتف سامسونج</p>
         </header>
 
@@ -426,7 +446,7 @@
             var content = document.getElementById(id);
             var isVisible = content.style.display === "block";
 
-            // إخفاء باقي القوائم المفتوحة
+            // إخفاء باقي القوائم
             var allContents = document.getElementsByClassName("dropdown-content");
             var allBtns = document.getElementsByClassName("menu-btn");
             
@@ -435,7 +455,7 @@
                 allBtns[i].classList.remove("active");
             }
 
-            // إظهار أو إخفاء القائمة الحالية
+            // إظهار أو إخفاء القائمة المحددة
             if (!isVisible) {
                 content.style.display = "block";
                 btnElement.classList.add("active");
@@ -445,7 +465,7 @@
             }
         }
 
-        // دالة لنسخ الكود
+        // دالة النسخ إلى الحافظة
         function copyCode(codeText, btn) {
             navigator.clipboard.writeText(codeText).then(function() {
                 let originalText = btn.innerText;
